@@ -14,11 +14,12 @@ zinit light Aloxaf/fzf-tab
 ZVM_VI_EDITOR="nvim"
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
 
 zinit wait lucid for \
-    zsh-users/zsh-autosuggestions \
-    zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-history-substring-search
+
 
 # set descriptions format to enable group support
 # NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
