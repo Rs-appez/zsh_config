@@ -4,17 +4,22 @@ alias tk="tmux kill-session -t"
 alias tat="tmux attach -t"
 alias tl="tmux -L"
 
-tn(){
+_tmux_session_name(){
+    local name
     if [ -z "$1" ]; then
         name=$(basename "$PWD")
         if [[ "${name:0:1}" == "." ]]; then
             name=${name:1}
         fi
-        SESSION_NAME=$name
-        echo "$SESSION_NAME"
     else
-        SESSION_NAME="$1"
+        name="$1"
     fi
+    name=${name//[.:]/_}
+    echo "$name"
+}
+
+tn(){
+    SESSION_NAME=$(_tmux_session_name "$1")
     tmux new -d -s "$SESSION_NAME"
     tmux new-window -t "$SESSION_NAME":2 -n "nvim"
     tmux new-window -t "$SESSION_NAME":3 -n "git"
@@ -24,15 +29,6 @@ tn(){
 }
 
 t(){
-    if [ -z "$1" ]; then
-        name=$(basename "$PWD")
-        if [[ "${name:0:1}" == "." ]]; then
-            name=${name:1}
-        fi
-        SESSION_NAME=$name
-        echo "$SESSION_NAME"
-    else
-        SESSION_NAME="$1"
-    fi
+    SESSION_NAME=$(_tmux_session_name "$1")
     tmux new -A -s "$SESSION_NAME"
 }
