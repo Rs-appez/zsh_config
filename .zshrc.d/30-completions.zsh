@@ -8,7 +8,6 @@ completion_tools=(
 
 typeset -A init_tools
 init_tools=(
-    [fzf]="--zsh"
     [zoxide]="init zsh"
 )
 

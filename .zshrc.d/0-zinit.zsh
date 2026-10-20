@@ -14,6 +14,11 @@ zinit light Aloxaf/fzf-tab
 ZVM_VI_EDITOR="nvim"
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+
+function zvm_after_init() {
+    [[ -f ~/.zshrc.d/inits/fzf.zsh ]] && source ~/.zshrc.d/inits/fzf.zsh
+}
+
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 
