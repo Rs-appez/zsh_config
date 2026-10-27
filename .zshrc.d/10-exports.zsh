@@ -5,4 +5,6 @@ export EDITOR="nvim"
 export SUDO_ASKPASS="$HOME/.local/bin/sudo-askpass"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
+export GPG_TTY=$(tty)
+
 export PATH="$HOME/.local/bin:$PATH"
