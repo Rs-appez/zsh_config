@@ -14,3 +14,8 @@ zle -N center_prompt_on_empty_enter
 bindkey '^M' center_prompt_on_empty_enter
 
 bindkey -M viins '^J' forward-word
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M viins '^V' edit-command-line
+bindkey -M vicmd '^V' edit-command-line
