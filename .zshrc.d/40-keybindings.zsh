@@ -13,3 +13,4 @@ center_prompt_on_empty_enter() {
 zle -N center_prompt_on_empty_enter
 bindkey '^M' center_prompt_on_empty_enter
 
+bindkey -M viins '^J' forward-word
